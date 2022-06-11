@@ -12,6 +12,7 @@ public class FileInput {
         ArrayList <HockeyPlayer> NHLPlayers = new ArrayList<>();
         String testRow;
 
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             String line = br.readLine();
