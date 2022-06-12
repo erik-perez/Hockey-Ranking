@@ -12,11 +12,8 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-
     @Autowired
     PlayerDataService playerDataService;
-
-
 
     @GetMapping("/")
     public String home(Model model){

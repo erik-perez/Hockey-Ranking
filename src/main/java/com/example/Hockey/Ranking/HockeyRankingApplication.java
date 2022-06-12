@@ -1,14 +1,10 @@
 package com.example.Hockey.Ranking;
 
-import com.example.Hockey.Ranking.fileInput.FileInput;
-import com.example.Hockey.Ranking.hockeyPlayer.HockeyPlayer;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import java.util.List;
-
-//import static com.example.Hockey.Ranking.hockeyPlayer.Ranking.assignRanks;
 
 @SpringBootApplication
 @EnableScheduling
