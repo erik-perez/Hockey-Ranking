@@ -4,19 +4,22 @@ import com.example.Hockey.Ranking.fileInput.FileInput;
 import com.example.Hockey.Ranking.hockeyPlayer.HockeyPlayer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.List;
 
-import static com.example.Hockey.Ranking.hockeyPlayer.Ranking.assignRanks;
+//import static com.example.Hockey.Ranking.hockeyPlayer.Ranking.assignRanks;
 
 @SpringBootApplication
+@EnableScheduling
 public class HockeyRankingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HockeyRankingApplication.class, args);
 
+
 //
-//		String players = "./nhl-stats.csv";
+//		String players = "./NHL 2020 Player Stats.csv";
 //		List<HockeyPlayer> nhlS2021 = FileInput.readNHLplayers(players);
 //
 //		assignRanks(nhlS2021);

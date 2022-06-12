@@ -5,18 +5,18 @@ import java.util.List;
 @Data
 public class HockeyPlayer {
 
-    enum Position {
-        C, D, LW, RW;
-    }
-
-    enum Teams {
-
-    }
+//    enum Position {
+//        C, D, LW, RW;
+//    }
+//
+//    public enum Teams {
+//
+//    }
 
     String Name;
-    Teams Team;
-    int Age;
-    Position Pos;
+    String Team;
+    double Age;
+    String Pos;
     double GP;
     double G;
     double A;
@@ -46,8 +46,10 @@ public class HockeyPlayer {
     double BS;
     double rank;
 
+
+
 //    public static HockeyPlayer createPlayer(String[] data) {
-//        String name = data[0];
+//        String name = data.;
 //        String team = data[1];
 //        Position position = Position.valueOf(data[2]);
 //        int games = Integer.parseInt(data[3]);
@@ -108,5 +110,43 @@ public class HockeyPlayer {
 //        this.bs = bs;
 //        this. rank = rank;
 //    }
+
+    @Override
+    public String toString() {
+        return "HockeyPlayer{" +
+                "Name='" + Name + '\'' +
+                ", Team='" + Team + '\'' +
+                ", Age=" + Age +
+                ", Pos='" + Pos + '\'' +
+                ", GP='" + GP + '\'' +
+                ", G=" + G +
+                ", A='" + A + '\'' +
+                ", PPP='" + PPP + '\'' +
+                ", P=" + P +
+                ", PIM='" + PIM + '\'' +
+                ", +/-='" + PlusMinus + '\'' +
+                ", TOI=" + TOI +
+                ", ES='" + ES + '\'' +
+                ", PP='" + PP + '\'' +
+                ", SH=" + SH +
+                ", G/60='" + GPer60 + '\'' +
+                ", A/60='" + APer60 + '\'' +
+                ", P/60=" + PPer60 +
+                ", ESG/60='" + ESGPer60 + '\'' +
+                ", ESA/60='" + ESAPer60 + '\'' +
+                ", ESP/60=" + ESPPer60 +
+                ", PPG/60='" + PPGPer60 + '\'' +
+                ", PPA/60='" + PPAPer60 + '\'' +
+                ", PPP/60=" + PPPPer60 +
+                ", G/GP='" + GPerGP + '\'' +
+                ", A/GP='" + APerGP + '\'' +
+                ", P/GP=" + PPerGP +
+                ", SHOTS='" + SHOTS + '\'' +
+                ", SH%='" + SHPercentage + '\'' +
+                ", HITS=" + HITS +
+                ", BS='" + BS + '\'' +
+                ", rank='" + rank +
+                '}';
+    }
 }
 
