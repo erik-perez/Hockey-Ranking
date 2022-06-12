@@ -3,7 +3,8 @@ package com.example.Hockey.Ranking.hockeyPlayer;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//public class Ranking {
+public class Ranking {
+
 //    public static void assignRanks(List<HockeyPlayer> toBeRanked) {
 //        for (HockeyPlayer.Position pos : HockeyPlayer.Position.values()) {
 //            assignRank(toBeRanked, pos);
@@ -25,4 +26,4 @@ import java.util.stream.Collectors;
 //                (toBeRanked.getPpp() - average.getPpp()) + (toBeRanked.getHits() - average.getHits()) + (toBeRanked.getBs() - average.getBs()));
 //        toBeRanked.setRank(rk);
 //    }
-//}
+}
