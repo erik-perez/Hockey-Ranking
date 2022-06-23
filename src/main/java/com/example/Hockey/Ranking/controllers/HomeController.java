@@ -21,7 +21,7 @@ public class HomeController {
         String Name = String.valueOf(allStats.stream().mapToInt(stat -> Integer.parseInt(stat.getName())));
         String Teams  = String.valueOf(allStats.stream().mapToInt(stat -> Integer.parseInt(stat.getTeam())));
         double Age = allStats.stream().mapToInt(stat -> (int) stat.getAge()).sum();
-        String Pos  = String.valueOf(allStats.stream().mapToInt(stat -> Integer.parseInt(stat.getPos())));
+        String Pos  = String.valueOf(allStats.stream().mapToInt(stat -> Integer.parseInt(String.valueOf(stat.getPos()))));
         double G = allStats.stream().mapToInt(stat -> (int) stat.getG()).sum();
 
         double A = allStats.stream().mapToInt(stat -> (int) stat.getA()).sum();

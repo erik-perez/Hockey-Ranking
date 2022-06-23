@@ -1,6 +1,5 @@
 package com.example.Hockey.Ranking.services;
 import com.example.Hockey.Ranking.hockeyPlayer.HockeyPlayer;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.PostConstruct;
 import java.io.*;
@@ -8,11 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @RestController
 public class PlayerDataService {
 
     private static String HockeyPlayerCsv2020 = "/Users/erik/JavaProjects/Hockey-Ranking/NHL 2020 Player Stats.csv";
+
+    private static List<HockeyPlayer> allStats = new ArrayList<>();
+
+    public static List<HockeyPlayer> getAllStats() {
+        return allStats;
+    }
 
     @PostConstruct
     public void fetchPlayer() throws IOException {
@@ -59,11 +63,14 @@ public class PlayerDataService {
             double BS = Double.parseDouble(detailed[30]);
             double rank = 0;
 
-            newStats.add(new HockeyPlayer(Name, Team, Age, Pos, GP, G, A, PPP, P, PIM, PlusMinus, TOI, ES, PP, SH, GPer60,
-                    APer60, PPerGP, ESGPer60, ESAPer60, ESPPer60, PPGPer60, PPAPer60, PPPPer60, GPerGP, APerGP,  PPerGP, SHOTS, SHPercentage, HITS, BS, rank));
+            newStats.add(new HockeyPlayer(Name, Team, Age, Pos, GP, G, A, PPP, P, PIM, PlusMinus, TOI,
+                    ES, PP, SH, GPer60, APer60, PPerGP, ESGPer60, ESAPer60, ESPPer60, PPGPer60, PPAPer60,
+                    PPPPer60, GPerGP, APerGP,  PPerGP, SHOTS, SHPercentage, HITS, BS, rank));
         }
 
-
+        for(int i = 0; i < newStats.size(); i++){
+            System.out.println(newStats.get(i).toString());
+        }
 
 //    @RequestMapping("/")
 //    public List<HockeyPlayer> buildRank(Model model){
@@ -74,5 +81,7 @@ public class PlayerDataService {
 //    }
 
         }
+
+
     }
 

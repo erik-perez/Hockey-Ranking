@@ -4,11 +4,14 @@ import lombok.Data;
 @Data
 public class HockeyPlayer {
 
+    enum Position {
+        RW, LW, C, D
+    }
 
     String Name;
     String Team;
     double Age;
-    String Pos;
+    Position Pos;
     double GP;
     double G;
     double A;
@@ -44,7 +47,7 @@ public class HockeyPlayer {
         Name = name;
         Team = team;
         Age = age;
-        Pos = pos;
+        Pos = Position.valueOf(pos);
         this.GP = GP;
         G = g;
         A = a;
@@ -73,6 +76,39 @@ public class HockeyPlayer {
         this.HITS = HITS;
         this.BS = BS;
         this.rank = rank;
+    }
+
+    public static HockeyPlayer createAvgPlayer(List <HockeyPlayer> NHL, Position position) {
+        double avgGames = 0;
+        double avgGoals = 0;
+        double avgAssists = 0;
+        double avgSog = 0;
+        double avgPPP = 0;
+        double avgHits = 0;
+        double avgBs = 0;
+        int count = 0;
+        for (HockeyPlayer b : NHL){
+            count ++;
+            avgGames = avgGames + b.getGames();
+            avgGoals = avgGoals + b.getGoals();
+            avgAssists = avgAssists+ b.getAssists();
+            avgSog = avgSog + b.getSog();
+            avgPPP = avgPPP + b.getPpp();
+            avgHits = avgHits + b.getHits();
+            avgBs = avgBs + b.getBs();
+        }
+        String AverageName = "Average player";
+        String teamName = "None";
+        double games = (avgGames/count);
+        double goals = (avgGoals/count);
+        double assists = (avgAssists/count);
+        double sog = (avgSog/count);
+        double ppp = (avgPPP/count);
+        double hits = (avgHits/count);
+        double bs = (avgBs/count);
+        double rk = 0;
+
+        return new HockeyPlayer(AverageName, teamName, position, games, goals, assists, sog, ppp, hits, bs, rk);
     }
 
     @Override
