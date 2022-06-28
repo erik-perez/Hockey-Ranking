@@ -10,8 +10,6 @@ import java.util.List;
 @RestController
 public class PlayerDataService {
 
-    private static String HockeyPlayerCsv2020 = "/Users/erik/JavaProjects/Hockey-Ranking/NHL 2020 Player Stats.csv";
-
     private static List<HockeyPlayer> allStats = new ArrayList<>();
 
     public static List<HockeyPlayer> getAllStats() {
@@ -19,9 +17,9 @@ public class PlayerDataService {
     }
 
     @PostConstruct
-    public void fetchPlayer() throws IOException {
+    public static List <HockeyPlayer>  fetchPlayer(String fileInput) throws IOException {
         List<HockeyPlayer> newStats = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader(HockeyPlayerCsv2020));
+        BufferedReader br = new BufferedReader(new FileReader(fileInput));
         String currentLine;
 
         while ((currentLine = br.readLine()) != null){
@@ -58,7 +56,7 @@ public class PlayerDataService {
             double APerGP = Double.parseDouble(detailed[25]);
             double PPerGP = Double.parseDouble(detailed[26]);
             double SHOTS = Double.parseDouble(detailed[27]);
-            String SHPercentage = detailed[28];
+            double SHPercentage = Double.parseDouble(detailed[28]);
             double HITS = Double.parseDouble(detailed[29]);
             double BS = Double.parseDouble(detailed[30]);
             double rank = 0;
@@ -68,19 +66,9 @@ public class PlayerDataService {
                     PPPPer60, GPerGP, APerGP,  PPerGP, SHOTS, SHPercentage, HITS, BS, rank));
         }
 
-        for(int i = 0; i < newStats.size(); i++){
-            System.out.println(newStats.get(i).toString());
+        return newStats;
         }
 
-//    @RequestMapping("/")
-//    public List<HockeyPlayer> buildRank(Model model){
-//        assignRanks(ranking);
-//        ranking.stream().sorted((o1, o2) -> Double.compare(o2.getRank(), o1.getRank()));
-//        model.addAttribute("HockeyPlayer", ranking);
-//        return ranking;
-//    }
-
-        }
 
 
     }
